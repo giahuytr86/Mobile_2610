@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:id="@+id/main"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông Tin Cá Nhân"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Họ và tên"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên của bạn"
+            android:background="@android:drawable/editbox_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Năm sinh"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập năm sinh"
+            android:inputType="number"
+            android:background="@android:drawable/editbox_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPA"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edtGPA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập GPA"
+            android:background="@android:drawable/editbox_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sở thích"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:layout_marginBottom="16dp">
+
+            <CheckBox
+                android:id="@+id/chkTheThao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thể thao" />
+
+            <CheckBox
+                android:id="@+id/chkAmNhac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Âm nhạc" />
+
+            <CheckBox
+                android:id="@+id/chkKhoaHoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khoa học" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="3"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Thêm"
+                android:textColor="@android:color/white"
+                android:layout_margin="4dp" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Xóa"
+                android:textColor="@android:color/white"
+                android:layout_margin="4dp" />
+
+            <Button
+                android:id="@+id/btnView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Xem"
+                android:textColor="@android:color/white"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
