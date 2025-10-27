@@ -68,6 +68,18 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private View.OnClickListener deleteOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            edtName.setText("");
+            edtGPA.setText("");
+            edtYear.setText("");
+            chkAmNhac.setChecked(false);
+            chkKhoaHoc.setChecked(false);
+            chkTheThao.setChecked(false);
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -98,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnAdd.setOnClickListener(addOnClick);
         btnView.setOnClickListener(viewOnClick);
+        btnDelete.setOnClickListener(deleteOnClick);
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("last_student")) {
             Student lastStudent = intent.getParcelableExtra("last_student");
@@ -106,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
                 edtYear.setText(String.valueOf(lastStudent.getYearOfBirth()));
                 edtGPA.setText(String.valueOf(lastStudent.getGpa()));
 
-                // Xử lý các checkbox
                 chkTheThao.setChecked(lastStudent.getHobbies().contains("Thể thao"));
                 chkAmNhac.setChecked(lastStudent.getHobbies().contains("Âm nhạc"));
                 chkKhoaHoc.setChecked(lastStudent.getHobbies().contains("Khoa học"));

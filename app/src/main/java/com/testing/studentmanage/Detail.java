@@ -42,13 +42,11 @@ public class Detail extends AppCompatActivity {
                 tvHobbies.setText(String.join(", ", s.getHobbies()));
                 tvHobbies.setPadding(8, 8, 8, 8);
 
-                // Thêm các cột vào hàng
                 row.addView(tvName);
                 row.addView(tvYear);
                 row.addView(tvGPA);
                 row.addView(tvHobbies);
 
-                // Thêm hàng vào bảng
                 tableLayout.addView(row);
             }
         } else {
