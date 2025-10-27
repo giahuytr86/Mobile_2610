@@ -64,10 +64,17 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, Detail.class);
             intent.putExtra("student_manager", studentManager);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
         }
     };
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            studentManager = data.getParcelableExtra("student_manager");
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         edtName = findViewById(R.id.edtName);
         edtYear = findViewById(R.id.edtYear);
         edtGPA = findViewById(R.id.edtGPA);
@@ -90,5 +98,20 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnAdd.setOnClickListener(addOnClick);
         btnView.setOnClickListener(viewOnClick);
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("last_student")) {
+            Student lastStudent = intent.getParcelableExtra("last_student");
+            if (lastStudent != null) {
+                edtName.setText(lastStudent.getName());
+                edtYear.setText(String.valueOf(lastStudent.getYearOfBirth()));
+                edtGPA.setText(String.valueOf(lastStudent.getGpa()));
+
+                // Xử lý các checkbox
+                chkTheThao.setChecked(lastStudent.getHobbies().contains("Thể thao"));
+                chkAmNhac.setChecked(lastStudent.getHobbies().contains("Âm nhạc"));
+                chkKhoaHoc.setChecked(lastStudent.getHobbies().contains("Khoa học"));
+            }
+        }
+
     }
 }

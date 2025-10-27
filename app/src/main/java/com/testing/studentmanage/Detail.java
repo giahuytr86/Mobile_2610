@@ -1,6 +1,8 @@
 package com.testing.studentmanage;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -52,5 +54,13 @@ public class Detail extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Không có dữ liệu sinh viên!", Toast.LENGTH_SHORT).show();
         }
+
+        Button btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(v -> {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("student_manager", studentManager);
+            setResult(RESULT_OK, resultIntent);
+            finish();
+        });
     }
 }

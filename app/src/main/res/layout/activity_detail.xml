@@ -1,65 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    android:padding="16dp"
     tools:context=".Detail">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Phần nội dung cuộn (tiêu đề + danh sách sinh viên) -->
+    <ScrollView
+        android:id="@+id/scrollContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnBack"
+        android:padding="16dp">
 
-        <!-- Tiêu đề -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:text="Danh sách sinh viên"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="#222222"
-            android:gravity="center"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp" />
+            android:layout_height="wrap_content">
 
-        <!-- Bảng danh sách -->
-        <TableLayout
-            android:id="@+id/tableStudents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*"
-            android:background="#FFFFFF"
-            android:padding="8dp">
+            <!-- Tiêu đề -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:text="Danh sách sinh viên"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
 
-            <!-- Hàng tiêu đề -->
-            <TableRow android:background="#DDDDDD">
-                <TextView
-                    android:text="Tên"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:layout_column="0" />
+            <!-- Bảng danh sách -->
+            <TableLayout
+                android:id="@+id/tableStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:background="#FFFFFF"
+                android:padding="8dp">
 
-                <TextView
-                    android:text="Năm sinh"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:layout_column="1" />
+                <!-- Hàng tiêu đề -->
+                <TableRow android:background="#DDDDDD">
+                    <TextView
+                        android:text="Tên"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:layout_column="0" />
 
-                <TextView
-                    android:text="GPA"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:layout_column="2" />
+                    <TextView
+                        android:text="Năm sinh"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:layout_column="1" />
 
-                <TextView
-                    android:text="Sở thích"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:layout_column="3" />
-            </TableRow>
-        </TableLayout>
+                    <TextView
+                        android:text="GPA"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:layout_column="2" />
 
-    </LinearLayout>
-</ScrollView>
+                    <TextView
+                        android:text="Sở thích"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:layout_column="3" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Nút quay lại cố định ở cuối màn hình -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quay lại"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#2196F3"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:padding="10dp" />
+
+</RelativeLayout>
